@@ -1,0 +1,110 @@
+/* Configurações Globais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f172a, #1e1b4b);
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Container do Perfil */
+.perfil {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #6366f1;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+.perfil h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.perfil p {
+    font-size: 1rem;
+    color: #94a3b8;
+}
+
+/* Container de Links */
+.links-container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+/* Botões Estilizados */
+.link-botao {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+/* Efeito Hover nos Botões */
+.link-botao:hover {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: #6366f1;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: auto;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+#btn-tema {
+    background: transparent;
+    border: 1px solid #64748b;
+    color: #94a3b8;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+#btn-tema:hover {
+    background: #64748b;
+    color: #0f172a;
+}
+
+/* Ajuste básico para o botão de tema mostrar um texto se estiver vazio */
+#btn-tema::after {
+    content: "Alternar Tema";
+}
