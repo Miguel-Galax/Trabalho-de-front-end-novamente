@@ -4,45 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Linktree</title>
+    <!-- Vinculando o seu arquivo de estilo personalizado -->
     <link rel="stylesheet" href="ja tive ferias, mas mais ferias seria bom.css">
 </head>
 <body>
+
+    <!-- Botão Flutuante para abrir o painel de edição (Engrenagem) -->
+    <button class="btn-editar" onclick="togglePainel()">⚙️</button>
+
+    <!-- Painel Administrativo de Edição (Estilizado pelo CSS) -->
+    <div id="painelAdmin" class="painel-admin">
+        <h2>Editar Perfil e Links</h2>
+        
+        <label for="editFoto">URL da Foto de Perfil:</label>
+        <input type="text" id="editFoto" placeholder="Insira o link da foto (ex: https://...)">
+
+        <label for="editNome">Nome:</label>
+        <input type="text" id="editNome">
+
+        <label for="editDescricao">Descrição:</label>
+        <input type="text" id="editDescricao">
+
+        <hr>
+        <h3>Links (Nome e URL)</h3>
+
+        <!-- O Javascript vai construir os campos de texto aqui dentro -->
+        <div id="inputsLinksContainer"></div>
+
+        <div class="painel-botoes">
+            <button class="btn-salvar" onclick="salvarAlteracoes()">Salvar</button>
+            <button class="btn-fechar" onclick="togglePainel()">Fechar</button>
+        </div>
+    </div>
+
+    <!-- Estrutura Principal do Linktree -->
     <header class="perfil">
-        <img src="file:///C:/Users/aluno/Downloads/Firefly_RemoveBackground.png" alt="Foto de Perfil" class="avatar">
-        <h1>Miguel Marques</h1>
-        <p>Desenvolvedor em formação | Viciado em tecnologia.</p>
+        <img src="" alt="Foto de Perfil" class="avatar" id="perfilFoto">
+        <h1 id="perfilNome">Miguel Marques</h1>
+        <p id="perfilDescricao">Desenvolvedor em formação | Viciado em tecnologia.</p>
     </header>
-    
-    <main class="links-container">
-        <!-- O target="_blank" garante que o link abra em uma nova aba -->
-        <a href="https://github.com" target="_blank" class="link-botao">GitHub</a>
-        <a href="https://linkedin.com" target="_blank" class="link-botao">LinkedIn</a>
-        <a href="https://github.com/Miguel-Galax/site-de-mercado-trabalho-escolar.git" target="_blank" class="link-botao">Meu Portfólio</a>
-        <a href="https://web.whatsapp.com/" target="_blank" class="link-botao">Contato via WhatsApp</a>
-        <a href="https://canva.link/0ez8h1719689gah" target="_blank" class="link-botao">Currículo PDF</a>
+
+    <!-- Botão de Alternar Tema (já previsto no seu CSS original) -->
+    <button id="btn-tema"></button>
+
+    <main class="links-container" id="linksContainer">
+        <!-- Os botões de links serão gerados dinamicamente pelo script.js -->
     </main>
 
     <footer>
-        <p>Criado por [Miguel] &copy; 2026</p>
+        <p>Criado por Miguel &copy; 2026</p>
     </footer>
-    <script src="script.js">    // Seleciona todos os botões de link da página
-const botoes = document.querySelectorAll('.link-botao');
 
-// Adiciona um evento para cada botão encontrado
-botoes.forEach(botao => {
-    botao.addEventListener('click', (evento) => {
-        // Exibe no console qual link foi clicado (bom para testes)
-        console.log(`Você clicou no link: ${botao.textContent}`);
-
-        // Adiciona uma classe para criar um efeito visual de clique
-        botao.classList.add('clicado');
-
-        // Remove a classe após 200 milissegundos para o botão voltar ao normal
-        setTimeout(() => {
-            botao.classList.remove('clicado');
-        }, 200);
-    });
-});
-</script>
+    <!-- Vinculando o arquivo de script modificado -->
+    <script src="script.js"></script>
 </body>
 </html>

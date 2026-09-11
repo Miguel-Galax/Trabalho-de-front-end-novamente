@@ -15,6 +15,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    position: relative;
 }
 
 /* Container do Perfil */
@@ -70,6 +71,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 /* Efeito Hover nos Botões */
@@ -78,6 +80,13 @@ body {
     border-color: #6366f1;
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+}
+
+/* Classe de clique adicionada via JS */
+.link-botao.clicado {
+    transform: scale(0.95);
+    background: rgba(168, 85, 247, 0.4);
+    border-color: #a855f7;
 }
 
 /* Rodapé */
@@ -107,4 +116,155 @@ footer {
 /* Ajuste básico para o botão de tema mostrar um texto se estiver vazio */
 #btn-tema::after {
     content: "Alternar Tema";
+}
+
+/* ==========================================================================
+   Estilos do Painel Administrativo de Edição (Estética Glassmorphism)
+   ========================================================================== */
+
+/* Botão Flutuante da Engrenagem (Canto superior direito) */
+.btn-editar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-editar:hover {
+    background: rgba(99, 102, 241, 0.3);
+    border-color: #6366f1;
+    transform: rotate(45deg);
+}
+
+/* Janela Modal do Painel de Configurações */
+.painel-admin {
+    display: none; /* Controlado via JS (block/none) */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(15, 23, 42, 0.95); /* Fundo escuro combinando com o body */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid #6366f1; /* Borda neon roxa */
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(99, 102, 241, 0.2);
+    color: #f8fafc;
+    z-index: 1001;
+    max-height: 85vh;
+    overflow-y: auto;
+    width: 90%;
+    max-width: 440px;
+}
+
+/* Customização da barra de rolagem interna do painel */
+.painel-admin::-webkit-scrollbar {
+    width: 6px;
+}
+.painel-admin::-webkit-scrollbar-thumb {
+    background: #6366f1;
+    border-radius: 10px;
+}
+
+.painel-admin h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.painel-admin h3 {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+/* Títulos das caixas de entrada (Labels) */
+.painel-admin label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+/* Caixas de Texto (Inputs) */
+.painel-admin input {
+    width: 100%;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.painel-admin input:focus {
+    border-color: #a855f7;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+}
+
+/* Divisores de seção */
+.painel-admin hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 20px 0;
+}
+
+/* Container dos botões inferiores */
+.painel-botoes {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.painel-botoes button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+/* Botão Salvar (Roxo com gradiente) */
+.btn-salvar {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.btn-salvar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+/* Botão Cancelar/Fechar (Sutil/Escuro) */
+.btn-fechar {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.btn-fechar:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
